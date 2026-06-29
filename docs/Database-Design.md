@@ -27,3 +27,15 @@
 | created_at      | TIMESTAMP    | Document Uploaded Time                     |
 | updated_at      | TIMESTAMP    | Last Verification/Update Time              |
 
+
+## 3. Verification Results Table
+
+| Column              | Data Type    | Description                                |
+|---------------------|--------------|--------------------------------------------|
+| result_id           | INT          | Primary Key (Auto Increment)               |
+| document_id         | INT          | Foreign Key (References Documents Table)   |
+| verification_status | VARCHAR(20)  | e.g., 'PASSED', 'FAILED', 'MANUAL_REVIEW'  |
+| confidence_score    | DECIMAL(5,2) | AI Matching Score (e.g., 98.50%)           |
+| verified_by         | VARCHAR(50)  | System/Admin ID who performed verification |
+| remarks             | TEXT         | Reason for failure or specific notes       |
+| verified_at         | TIMESTAMP    | Time when verification was completed       |
