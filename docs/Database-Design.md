@@ -40,3 +40,47 @@
 | verified_by        | VARCHAR(100) | Admin name or ID                       |
 | verification_date  | TIMESTAMP    | Date & Time of verification            |
 | remarks            | TEXT         | Final verification remarks             |
+
+
+## 4. Entity Relationship (ER) Diagram
+
+```text
++----------------+
+|    STUDENT     |
++----------------+
+| student_id PK  |
+| full_name      |
+| email          |
+| phone_number   |
+| ...            |
++----------------+
+         |
+         | 1
+         |
+         |------< N
+                |
+      +------------------+
+      |    DOCUMENTS     |
+      +------------------+
+      | document_id PK   |
+      | student_id FK    |
+      | document_type    |
+      | file_path        |
+      | ...              |
+      +------------------+
+
+         |
+         | 1
+         |
+         |------1
+                |
+     +-------------------------+
+     | VERIFICATION_RESULTS    |
+     +-------------------------+
+     | verification_id PK      |
+     | student_id FK           |
+     | overall_status          |
+     | verification_score      |
+     | ...                     |
+     +-------------------------+
+```
