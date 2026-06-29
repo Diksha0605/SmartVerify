@@ -31,12 +31,12 @@
 
 ## 3. Verification Results Table
 
-| Column              | Data Type    | Description                                |
-|---------------------|--------------|--------------------------------------------|
-| result_id           | INT          | Primary Key (Auto Increment)               |
-| document_id         | INT          | Foreign Key (References Documents Table)   |
-| verification_status | VARCHAR(20)  | e.g., 'PASSED', 'FAILED', 'MANUAL_REVIEW'  |
-| confidence_score    | DECIMAL(5,2) | AI Matching Score (e.g., 98.50%)           |
-| verified_by         | VARCHAR(50)  | System/Admin ID who performed verification |
-| remarks             | TEXT         | Reason for failure or specific notes       |
-| verified_at         | TIMESTAMP    | Time when verification was completed       |
+| Column             | Data Type    | Description                            |
+|--------------------|--------------|----------------------------------------|
+| verification_id    | INT          | Primary Key (Auto Increment)           |
+| student_id         | INT          | Foreign Key (References Student Table) |
+| overall_status     | VARCHAR(20)  | Pending / Verified / Rejected          |
+| verification_score | DECIMAL(5,2) | Verification score (e.g. 95.50)        |
+| verified_by        | VARCHAR(100) | Admin name or ID                       |
+| verification_date  | TIMESTAMP    | Date & Time of verification            |
+| remarks            | TEXT         | Final verification remarks             |
