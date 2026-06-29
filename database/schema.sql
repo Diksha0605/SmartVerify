@@ -27,3 +27,16 @@ CREATE TABLE IF NOT EXISTS documents (
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     FOREIGN KEY (student_id) REFERENCES students(student_id) ON DELETE CASCADE
 );
+
+
+-- 3. Verification Results Table
+CREATE TABLE IF NOT EXISTS verification_results (
+    result_id INT AUTO_INCREMENT PRIMARY KEY,
+    document_id INT NOT NULL,
+    verification_status VARCHAR(20) DEFAULT 'PENDING',
+    confidence_score DECIMAL(5,2) DEFAULT 0.00,
+    verified_by VARCHAR(50) DEFAULT 'SYSTEM',
+    remarks TEXT,
+    verified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (document_id) REFERENCES documents(document_id) ON DELETE CASCADE
+);
