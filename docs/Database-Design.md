@@ -17,15 +17,16 @@
 
 ## 2. Documents Table
 
-| Column          | Data Type    | Description                                |
-|-----------------|--------------|--------------------------------------------|
-| document_id     | INT          | Primary Key (Auto Increment)               |
-| student_id      | INT          | Foreign Key (References Student Table)     |
-| document_type   | VARCHAR(50)  | e.g., 'AADHAAR', '10TH_MARKSHEET', '12TH_MARKSHEET', 'TRANSFER_CERTIFICATE' |
-| document_status | VARCHAR(20)  | e.g., 'PENDING', 'VERIFIED', 'REJECTED'    |
-| file_path       | VARCHAR(255) | Storage location path of the uploaded file |
-| created_at      | TIMESTAMP    | Document Uploaded Time                     |
-| updated_at      | TIMESTAMP    | Last Verification/Update Time              |
+| Column              | Data Type    | Description                   |
+|---------------------|--------------|-------------------------------|
+| document_id         | INT          | Primary Key                   |
+| student_id          | INT          | Student ID (Foreign Key)      |
+| document_type       | VARCHAR(50)  | Aadhaar, 10th, 12th           |
+| file_name           | VARCHAR(255) | Uploaded file name            |
+| file_path           | VARCHAR(255) | File storage location         |
+| upload_date         | TIMESTAMP    | Upload date and time          |
+| verification_status | VARCHAR(20)  | Pending / Verified / Rejected |
+| remarks             | TEXT         | Admin comments                |
 
 
 ## 3. Verification Results Table
